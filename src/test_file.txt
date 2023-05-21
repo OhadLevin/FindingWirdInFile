@@ -1,0 +1,3 @@
+This is a text file with some words so I could test my program.
+lets check what happens when there is a new line
+	and a tab	after tab
