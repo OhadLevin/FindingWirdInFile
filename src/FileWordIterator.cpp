@@ -34,7 +34,6 @@ FileWordIterator::~FileWordIterator()
 
 void FileWordIterator::go_to_start()
 {
-	cout << "FileWordIterator on file " << this->path << " goes to start\n";
 	this->fin.clear();
 	this->fin.seekg(0);
 }

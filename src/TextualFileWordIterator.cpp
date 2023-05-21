@@ -20,7 +20,6 @@ TextualFileWordIterator::TextualFileWordIterator(string path, char sep) : FileWo
 
 string TextualFileWordIterator::get_next_word()
 {
-	cout << "TextualFileWordIterator gets next\n";
 	string temp;
 	this->fin >> temp;
 	return temp;
