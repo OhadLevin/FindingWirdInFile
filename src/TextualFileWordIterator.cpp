@@ -1,6 +1,7 @@
 #include <istream>
 #include <fstream>
 #include "TextualFileWordIterator.h"
+#include <iostream>
 
 using namespace std;
 
@@ -9,6 +10,13 @@ TextualFileWordIterator::TextualFileWordIterator(string path, char f_sep) : File
 string TextualFileWordIterator::get_next_word() 
 {
 	string temp;
-	this->fin >> temp;
+
+	try {
+		this->fin >> temp;
+	}
+	catch (const std::ios_base::failure& fail) {
+		std::cout << fail.what() << '\n';
+		return "";
+	}
 	return temp;
 }

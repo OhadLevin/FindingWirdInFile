@@ -7,7 +7,13 @@ using namespace std;
 FileWordIterator::FileWordIterator(string i_path): path(i_path)
 {
 	cout << "openning file " << i_path << '\n';
-	this->fin = ifstream(i_path, ifstream::in);
+	try {
+		this->fin = ifstream(i_path, ifstream::in); 
+		this->fin.exceptions(std::ifstream::failbit); 
+	}
+	catch (const std::ios_base::failure& fail) {
+		std::cout << fail.what() << '\n';
+	}
 }
 
 FileWordIterator::~FileWordIterator()
