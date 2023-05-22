@@ -1,28 +1,19 @@
-#include <string>
-#include <fstream>
 #include <iostream>
-#include "WordFinder.cpp"
+#include "FileWordIterator.h"
 
 using namespace std;
 
-class FileWordIterator : public WordIterator
-{
-public:
-	FileWordIterator(string path);
-	virtual string get_next_word() = 0;
-	void go_to_start();
-	~FileWordIterator();
 
-protected:
-	ifstream fin;
-	string path;
-};
-
-FileWordIterator::FileWordIterator(string path)
+FileWordIterator::FileWordIterator(string i_path): path(i_path)
 {
-	cout << "openning file " << this->path << '\n';
-	this->fin = ifstream(path, ifstream::in);
-	this->path = path;
+	cout << "openning file " << i_path << '\n';
+	try {
+		this->fin = ifstream(i_path, ifstream::in); 
+		this->fin.exceptions(std::ifstream::failbit); 
+	}
+	catch (const std::ios_base::failure& fail) {
+		std::cout << fail.what() << '\n';
+	}
 }
 
 FileWordIterator::~FileWordIterator()

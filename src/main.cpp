@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "TextualFileWordIterator.cpp"
-#define CASE_SENSATIVE_FLAG "-c"
-#define SUB_TEXT_FLAG "-s"
+#include "TextualFileWordIterator.h"
+static const char* CASE_SENSATIVE_FLAG = "-c";
+static const char* SUB_TEXT_FLAG = "-s";
+static const int MIN_ARG_COUNT = 3;
 
 using namespace std;
 
+
 int main(int argc, char* argv[])
 {
-	if (argc < 3)
+	if (argc < MIN_ARG_COUNT)
 	{
 		cout << "Wrong usage, this program gets 2 arguments, the file to search in path and the word to search in the file\n"
 			<< "example: FindWordInFile test_file.txt hello\n" 
