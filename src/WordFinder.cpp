@@ -9,10 +9,7 @@ public:
 	bool is_word_in_file(string word, bool case_sensative = false, bool sub_text_case = false);
 };
 
-WordFinder::WordFinder(WordIterator* wi)
-{
-	this->wi = wi;
-}
+WordFinder::WordFinder(WordIterator* i_wi) : wi(i_wi) {}
 
 bool compare_string(string str1, string str2, bool case_sensative = false);
 bool is_sub_text(string original, string sub_text, bool case_sensetive);

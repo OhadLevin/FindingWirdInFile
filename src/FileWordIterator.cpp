@@ -10,7 +10,7 @@ class FileWordIterator : public WordIterator
 public:
 	FileWordIterator(string path);
 	virtual string get_next_word() = 0;
-	void go_to_start();
+	void go_to_start() override;
 	~FileWordIterator();
 
 protected:
@@ -18,11 +18,10 @@ protected:
 	string path;
 };
 
-FileWordIterator::FileWordIterator(string path)
+FileWordIterator::FileWordIterator(string i_path): path(i_path)
 {
-	cout << "openning file " << this->path << '\n';
-	this->fin = ifstream(path, ifstream::in);
-	this->path = path;
+	cout << "openning file " << i_path << '\n';
+	this->fin = ifstream(i_path, ifstream::in);
 }
 
 FileWordIterator::~FileWordIterator()
