@@ -1,18 +1,14 @@
-#include "WordIterator.cpp"
+#include "WordFinder.h"
+#include <string>
 
-class WordFinder
-{
-private:
-	WordIterator* wi;
-public:
-	WordFinder(WordIterator* wi);
-	bool is_word_in_file(string word, bool case_sensative = false, bool sub_text_case = false);
-};
+using namespace std;
 
 WordFinder::WordFinder(WordIterator* i_wi) : wi(i_wi) {}
 
 bool compare_string(string str1, string str2, bool case_sensative = false);
 bool is_sub_text(string original, string sub_text, bool case_sensetive);
+
+const int CAPITAL_TO_NON_CAPITAL = 'a' - 'A';
 
 bool WordFinder::is_word_in_file(string word, bool case_sensative /*= false*/, bool sub_text_case /*= false*/)
 {
@@ -32,7 +28,6 @@ bool WordFinder::is_word_in_file(string word, bool case_sensative /*= false*/, b
 	return false;
 }
 
-const int CAPITAL_TO_NON_CAPITAL = 'a' - 'A';
 
 char get_char_in_string(string str, int ind, bool case_sensative)
 {

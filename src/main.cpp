@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include <string.h>
-#include "TextualFileWordIterator.cpp"
+#include "TextualFileWordIterator.h"
 static const char* CASE_SENSATIVE_FLAG = "-c";
 static const char* SUB_TEXT_FLAG = "-s";
 static const int MIN_ARG_COUNT = 3;
